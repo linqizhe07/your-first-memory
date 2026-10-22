@@ -1,9 +1,13 @@
 [project]
 name = "your-first-memory"
-version = "0.1.0"
-description = "A memory for a model that has none — CAM session-5 starter (record quotes, list quotes, Neon Postgres)"
+version = "0.2.0"
+description = "A memory for a model that has none, with an owner — CAM level 2 (record quotes, list quotes, Neon Postgres) retrofitted with level 3 (Neon Auth: guest commons / private memory)"
 requires-python = ">=3.11"
 dependencies = [
     "mcp[cli]>=1.2,<2",       # pinned: mcp 2.x renamed FastMCP (also pinned in render.yaml — buildCommand bypasses this file)
     "psycopg[binary]>=3.1",
+    "PyJWT[crypto]>=2.8",     # level-3 retrofit: verifies Neon Auth tokens offline against the JWKS (EdDSA)
 ]
+
+[dependency-groups]
+dev = ["pytest>=8"]
